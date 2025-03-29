@@ -72,7 +72,7 @@
 1742824438 d:\gameproject\game\jump.h
 	<vector>
 
-1743165210 source:d:\gameproject\game\main.cpp
+1743243436 source:d:\gameproject\game\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -92,7 +92,7 @@
 
 1742902637 source:d:\gameproject\game\intro.cpp
 
-1743164986 source:d:\gameproject\game\obstacle.cpp
+1743243007 source:d:\gameproject\game\obstacle.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
