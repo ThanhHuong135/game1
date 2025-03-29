@@ -1,0 +1,117 @@
+# depslib dependency file v1.0
+1742829000 source:d:\sdl\2\gameproject\game\graphics.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+
+1742824313 d:\sdl\2\gameproject\game\defs.h
+
+1742824428 d:\sdl\2\gameproject\game\graphics.h
+	"sprite.h"
+
+1742824450 d:\sdl\2\gameproject\game\sprite.h
+	<vector>
+
+1742824372 source:d:\sdl\2\gameproject\game\jump.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+	"jump.h"
+
+1742824438 d:\sdl\2\gameproject\game\jump.h
+	<vector>
+
+1742824277 source:d:\sdl\2\gameproject\game\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"sprite.h"
+	"jump.h"
+
+1742824383 source:d:\sdl\2\gameproject\game\sprite.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+
+1742906232 source:d:\gameproject\game\graphics.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+
+1743162937 d:\gameproject\game\defs.h
+
+1742824428 d:\gameproject\game\graphics.h
+	"sprite.h"
+
+1743163652 d:\gameproject\game\sprite.h
+	<vector>
+
+1742824372 source:d:\gameproject\game\jump.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+	"jump.h"
+
+1742824438 d:\gameproject\game\jump.h
+	<vector>
+
+1743165210 source:d:\gameproject\game\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"sprite.h"
+	"player.h"
+	"obstacle.h"
+
+1742824383 source:d:\gameproject\game\sprite.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+
+1742902637 source:d:\gameproject\game\intro.cpp
+
+1743164986 source:d:\gameproject\game\obstacle.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+	"obstacle.h"
+
+1743164922 d:\gameproject\game\obstacle.h
+
+1743159679 d:\gameproject\game\player.h
+	<vector>
+
+1743165059 source:d:\gameproject\game\player.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"graphics.h"
+	"sprite.h"
+	"player.h"
+
