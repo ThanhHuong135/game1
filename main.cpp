@@ -9,6 +9,7 @@
 #include "obstacle.h"
 #include "intro.h"
 #include "endScreen.h"
+#include "instruction.h"
 using namespace std;
 // xử lý va chạm
 bool checkCollision(SDL_Rect a, SDL_Rect b) {
@@ -58,7 +59,9 @@ int main(int argc, char *argv[])
 // Tạo nhân vật với vị trí ban đầu
     Player player(0, 351);
     player.sprite = man; // gán player cho sprite
-
+//màn hình hướng dẫn
+Instruction instruction;
+instruction.show(graphics, font);
     // xử lý sprite sheet
     while (running) {
         while (SDL_PollEvent(&e)) {
@@ -80,6 +83,7 @@ int main(int argc, char *argv[])
         if (checkCollision(player.getRect(), obstacle.getRect()) ||
             checkCollision(player.getRect(), obstacle2.getRect()) ||
             checkCollision(player.getRect(), obstacle3.getRect())) {
+                    SDL_Delay(500);
                     cout << "Game Over!" << endl;
                     endScreen.show(graphics, background, font);
                     running = false;
@@ -115,6 +119,7 @@ int main(int argc, char *argv[])
         graphics.renderTexture(scoreTexture, 10, 10); // Hiển thị ở góc trái trên
         SDL_DestroyTexture(scoreTexture); // Giải phóng bộ nhớ sau mỗi lần vẽ
 
+
         /*// Vẽ hitbox để kiểm tra va chạm
         SDL_SetRenderDrawColor(graphics.renderer, 255, 0, 0, 255);
         SDL_RenderDrawRect(graphics.renderer, &playerRect);
@@ -126,7 +131,6 @@ int main(int argc, char *argv[])
         graphics.presentScene();
         SDL_Delay(40);  // Để game mượt (40 FPS)
     }
-
     //
     SDL_DestroyTexture( background.texture );
 	SDL_DestroyTexture( manTexture ); manTexture = nullptr;

@@ -76,7 +76,7 @@
 1742824438 d:\gameproject\game\jump.h
 	<vector>
 
-1743340355 source:d:\gameproject\game\main.cpp
+1743343515 source:d:\gameproject\game\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -88,6 +88,7 @@
 	"obstacle.h"
 	"intro.h"
 	"endScreen.h"
+	"instruction.h"
 
 1742824383 source:d:\gameproject\game\sprite.cpp
 	<iostream>
@@ -138,4 +139,13 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	"graphics.h"
+
+1743342358 d:\gameproject\game\instruction.h
+	<SDL.h>
+	<SDL_ttf.h>
+	"graphics.h"
+
+1743343422 source:d:\gameproject\game\instruction.cpp
+	"instruction.h"
+	"defs.h"
 
