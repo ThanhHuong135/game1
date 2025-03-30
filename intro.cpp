@@ -1,16 +1,13 @@
 #include "intro.h"
 #include "defs.h"
 #include <iostream>
-
 // Khởi tạo intro (load ảnh, chữ, đặt vị trí)
 void Intro::init(Graphics& graphics) {
     // Load background và nút Play
     backgroundTexture = graphics.loadTexture(BACKGROUND);
     playButtonTexture = graphics.loadTexture(PLAY_BUTTON);
-
     // Định vị nút Play
-    playButtonRect = {325, 300, 150, 150}; // (X, Y, Width, Height)
-
+    playButtonRect = {325, 250, 150, 150}; // (X, Y, Width, Height)
     // Load font chữ
     font = graphics.loadFont("Purisa-BoldOblique.ttf", 50);
     if (font) {
@@ -19,7 +16,6 @@ void Intro::init(Graphics& graphics) {
         textRect = {200, 100, 300, 50}; // Vị trí chữ
     }
 }
-
 // Hiển thị intro (chờ người chơi nhấn Play)
 bool Intro::show(Graphics& graphics) {
     SDL_Event e;
@@ -33,7 +29,6 @@ bool Intro::show(Graphics& graphics) {
             if (e.type == SDL_MOUSEBUTTONDOWN) {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-
                 // Nếu click vào nút Play, vào game
                 if (mouseX >= playButtonRect.x && mouseX <= playButtonRect.x + playButtonRect.w &&
                     mouseY >= playButtonRect.y && mouseY <= playButtonRect.y + playButtonRect.h) {
@@ -42,19 +37,14 @@ bool Intro::show(Graphics& graphics) {
                 }
             }
         }
-
-
         // Vẽ background
         graphics.renderTexture(backgroundTexture, 0, 0);
-
         // Vẽ chữ "RUNNING MAN"
         if (textTexture) {
             graphics.renderTexture(textTexture, textRect.x, textRect.y);
         }
-
         // Vẽ nút Play
         graphics.renderTexture(playButtonTexture, playButtonRect.x, playButtonRect.y);
-
         // Cập nhật màn hình
         graphics.presentScene();
     }

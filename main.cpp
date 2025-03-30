@@ -8,6 +8,7 @@
 #include "player.h"
 #include "obstacle.h"
 #include "intro.h"
+#include "endScreen.h"
 using namespace std;
 // xử lý va chạm
 bool checkCollision(SDL_Rect a, SDL_Rect b) {
@@ -41,6 +42,16 @@ int main(int argc, char *argv[])
     Obstacle obstacle(350, 420, obstacleTexture, 8);
     Obstacle obstacle2(650, 420, obstacleTexture, 8);
     Obstacle obstacle3(900, 420, obstacleTexture, 8);
+
+// Biến điểm số
+    int score = 0;
+
+    // Load font để hiển thị điểm số
+    TTF_Font* font = graphics.loadFont("Purisa-BoldOblique.ttf", 50);
+    SDL_Color textColor = {255, 255, 255}; // Màu trắng
+    // Khởi tạo màn hình kết thúc
+    EndScreen endScreen;
+//
     bool quit = false;
     SDL_Event e;
     bool running = true ;
@@ -61,15 +72,16 @@ int main(int argc, char *argv[])
         // Cập nhật nhân vật
         player.update();
         // cập nhật chướng ngại vạat
-        obstacle.update();
-        obstacle2.update();
-        obstacle3.update();
+        obstacle.update(score);
+        obstacle2.update(score);
+        obstacle3.update(score);
 
         // xử lý va chạm
         if (checkCollision(player.getRect(), obstacle.getRect()) ||
             checkCollision(player.getRect(), obstacle2.getRect()) ||
             checkCollision(player.getRect(), obstacle3.getRect())) {
                     cout << "Game Over!" << endl;
+                    endScreen.show(graphics, background, font);
                     running = false;
         }
 
@@ -97,6 +109,12 @@ int main(int argc, char *argv[])
         obstacle2.render(graphics);
         obstacle3.render(graphics);
 
+        // Hiển thị điểm số lên màn hình
+        string scoreText = "Score: " + to_string(score);
+        SDL_Texture* scoreTexture = graphics.renderText(scoreText.c_str(), font, textColor);
+        graphics.renderTexture(scoreTexture, 10, 10); // Hiển thị ở góc trái trên
+        SDL_DestroyTexture(scoreTexture); // Giải phóng bộ nhớ sau mỗi lần vẽ
+
         /*// Vẽ hitbox để kiểm tra va chạm
         SDL_SetRenderDrawColor(graphics.renderer, 255, 0, 0, 255);
         SDL_RenderDrawRect(graphics.renderer, &playerRect);
@@ -112,6 +130,7 @@ int main(int argc, char *argv[])
     //
     SDL_DestroyTexture( background.texture );
 	SDL_DestroyTexture( manTexture ); manTexture = nullptr;
+	TTF_CloseFont(font);
 	graphics.quit();
     return 0;
 }
