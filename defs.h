@@ -8,7 +8,7 @@ const int SCREEN_HEIGHT = 500;
 //#define WINDOW_INTRO "Intro Game"
 #define MAN_SPRITE_FILE "sprite.png"
 #define OBSTACLE "obstacle.png"
-#define PLAY_BOTTOM "playBottom.png"
+#define PLAY_BUTTON "playButton.png"
 const int MAN_CLIPS[][4] = {
     {  0, 0, 214, 146 },
     { 214, 0, 214, 146 },

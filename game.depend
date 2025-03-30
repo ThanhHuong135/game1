@@ -44,18 +44,22 @@
 	"graphics.h"
 	"sprite.h"
 
-1742906232 source:d:\gameproject\game\graphics.cpp
+1743331553 source:d:\gameproject\game\graphics.cpp
 	<iostream>
+	<SDL_ttf.h>
 	<SDL.h>
 	<SDL_image.h>
 	"defs.h"
 	"graphics.h"
 	"sprite.h"
 
-1743329995 d:\gameproject\game\defs.h
+1743332722 d:\gameproject\game\defs.h
 
-1742824428 d:\gameproject\game\graphics.h
+1743331619 d:\gameproject\game\graphics.h
 	"sprite.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
 
 1743163652 d:\gameproject\game\sprite.h
 	<vector>
@@ -72,10 +76,11 @@
 1742824438 d:\gameproject\game\jump.h
 	<vector>
 
-1743329357 source:d:\gameproject\game\main.cpp
+1743333470 source:d:\gameproject\game\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_ttf.h>
 	"graphics.h"
 	"defs.h"
 	"sprite.h"
@@ -91,13 +96,10 @@
 	"graphics.h"
 	"sprite.h"
 
-1743330085 source:d:\gameproject\game\intro.cpp
-	<iostream>
-	<SDL.h>
-	<SDL_image.h>
-	"graphics.h"
-	"defs.h"
+1743334405 source:d:\gameproject\game\intro.cpp
 	"intro.h"
+	"defs.h"
+	<iostream>
 
 1743243007 source:d:\gameproject\game\obstacle.cpp
 	<iostream>
@@ -122,8 +124,7 @@
 	"sprite.h"
 	"player.h"
 
-1743329621 d:\gameproject\game\intro.h
+1743334212 d:\gameproject\game\intro.h
 	<SDL.h>
-	<SDL_image.h>
-	<iostream>
+	"graphics.h"
 

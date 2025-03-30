@@ -1,6 +1,9 @@
 #ifndef _GRAPHICS__H
 #define _GRAPHICS__H
 #include "sprite.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 struct Graphics {
     SDL_Renderer *renderer;
 	SDL_Window *window;
@@ -31,6 +34,9 @@ struct Graphics {
     void render(int x, int y, const Sprite& sprite);
 
     void render_background(const ScrollingBackground& background);
+// text
+    TTF_Font *loadFont(const char* path, int size);
+    SDL_Texture *renderText(const char* text,TTF_Font* font, SDL_Color textColor);
 
 };
 

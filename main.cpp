@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "graphics.h"
 #include "defs.h"
 #include "sprite.h"
@@ -21,15 +22,11 @@ int main(int argc, char *argv[])
     Graphics graphics;
     graphics.init();
 
-// Load intro ngay trên cửa sổ hiện tại
+// Khởi tạo Intro
     Intro intro;
-    intro.init(graphics.renderer);
-    if (!intro.show(graphics.renderer)) {
-        return 0; // Thoát nếu không nhấn Play
-    }
+    intro.init(graphics);  // Truyền graphics vào hàm init()
+    intro.show(graphics);
     intro.clean();
-
-// Tiếp tục vào game...
 // Load background
     ScrollingBackground background;
     background.setTexture(graphics.loadTexture(BACKGROUND));

@@ -1,34 +1,27 @@
-#include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
-#include "graphics.h"
-#include "defs.h"
 #include "intro.h"
+#include "defs.h"
+#include <iostream>
 
-// Khởi tạo intro (load ảnh, đặt vị trí)
-void Intro::init(SDL_Renderer* renderer) {
-    // Load background
-    SDL_Surface* bgSurface = IMG_Load(BACKGROUND);
-    backgroundTexture = SDL_CreateTextureFromSurface(renderer, bgSurface);
-    SDL_FreeSurface(bgSurface);
+// Khởi tạo intro (load ảnh, chữ, đặt vị trí)
+void Intro::init(Graphics& graphics) {
+    // Load background và nút Play
+    backgroundTexture = graphics.loadTexture(BACKGROUND);
+    playButtonTexture = graphics.loadTexture(PLAY_BUTTON);
 
-    // Load logo
-    SDL_Surface* logoSurface = IMG_Load(MAN_SPRITE_FILE);
-    logoTexture = SDL_CreateTextureFromSurface(renderer, logoSurface);
-    SDL_FreeSurface(logoSurface);
-
-    // Load nút Play
-    SDL_Surface* playSurface = IMG_Load(PLAY_BOTTOM);
-    playButtonTexture = SDL_CreateTextureFromSurface(renderer, playSurface);
-    SDL_FreeSurface(playSurface);
-
-    // Định vị logo và nút Play
-    logoRect = {250, 100, 300, 150};      // (X, Y, Width, Height)
+    // Định vị nút Play
     playButtonRect = {325, 300, 150, 150}; // (X, Y, Width, Height)
+
+    // Load font chữ
+    font = graphics.loadFont("Purisa-BoldOblique.ttf", 50);
+    if (font) {
+        SDL_Color color = {255, 255, 255};  // Màu trắng
+        textTexture = graphics.renderText("RUNNING MAN", font, color);
+        textRect = {200, 100, 300, 50}; // Vị trí chữ
+    }
 }
 
 // Hiển thị intro (chờ người chơi nhấn Play)
-bool Intro::show(SDL_Renderer* renderer) {
+bool Intro::show(Graphics& graphics) {
     SDL_Event e;
     bool running = true;
 
@@ -41,14 +34,7 @@ bool Intro::show(SDL_Renderer* renderer) {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
 
-                // Nếu click vào logo, thoát game
-                if (mouseX >= logoRect.x && mouseX <= logoRect.x + logoRect.w &&
-                    mouseY >= logoRect.y && mouseY <= logoRect.y + logoRect.h) {
-                    std::cout << "Clicked on logo -> Exiting game..." << std::endl;
-                    exit(0);
-                }
-
-                // Nếu click vào nút Play, bắt đầu game
+                // Nếu click vào nút Play, vào game
                 if (mouseX >= playButtonRect.x && mouseX <= playButtonRect.x + playButtonRect.w &&
                     mouseY >= playButtonRect.y && mouseY <= playButtonRect.y + playButtonRect.h) {
                     std::cout << "Clicked Play -> Starting game..." << std::endl;
@@ -57,15 +43,20 @@ bool Intro::show(SDL_Renderer* renderer) {
             }
         }
 
-        // Vẽ background game
-        SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
 
-        // Vẽ logo và nút Play
-       // SDL_RenderCopy(renderer, logoTexture, NULL, &logoRect);
-        SDL_RenderCopy(renderer, playButtonTexture, NULL, &playButtonRect);
+        // Vẽ background
+        graphics.renderTexture(backgroundTexture, 0, 0);
+
+        // Vẽ chữ "RUNNING MAN"
+        if (textTexture) {
+            graphics.renderTexture(textTexture, textRect.x, textRect.y);
+        }
+
+        // Vẽ nút Play
+        graphics.renderTexture(playButtonTexture, playButtonRect.x, playButtonRect.y);
 
         // Cập nhật màn hình
-        SDL_RenderPresent(renderer);
+        graphics.presentScene();
     }
     return false;
 }
@@ -73,6 +64,9 @@ bool Intro::show(SDL_Renderer* renderer) {
 // Giải phóng bộ nhớ
 void Intro::clean() {
     SDL_DestroyTexture(backgroundTexture);
-    SDL_DestroyTexture(logoTexture);
     SDL_DestroyTexture(playButtonTexture);
+    SDL_DestroyTexture(textTexture);
+    if (font) {
+        TTF_CloseFont(font);
+    }
 }
