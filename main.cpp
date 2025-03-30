@@ -6,8 +6,9 @@
 #include "sprite.h"
 #include "player.h"
 #include "obstacle.h"
+#include "intro.h"
 using namespace std;
-// xủa lý va chạm
+// xử lý va chạm
 bool checkCollision(SDL_Rect a, SDL_Rect b) {
     return (a.x < b.x + b.w &&
             a.x + a.w > b.x &&
@@ -19,9 +20,20 @@ int main(int argc, char *argv[])
 {
     Graphics graphics;
     graphics.init();
+
+// Load intro ngay trên cửa sổ hiện tại
+    Intro intro;
+    intro.init(graphics.renderer);
+    if (!intro.show(graphics.renderer)) {
+        return 0; // Thoát nếu không nhấn Play
+    }
+    intro.clean();
+
+// Tiếp tục vào game...
 // Load background
     ScrollingBackground background;
-    background.setTexture(graphics.loadTexture(BACKGROUND_IMG));
+    background.setTexture(graphics.loadTexture(BACKGROUND));
+
 // Load sprite nhân vật
     Sprite man;
     SDL_Texture* manTexture = graphics.loadTexture(MAN_SPRITE_FILE);
@@ -95,7 +107,6 @@ int main(int argc, char *argv[])
         SDL_RenderDrawRect(graphics.renderer, &obstacleRect);
         SDL_RenderDrawRect(graphics.renderer, &obstacleRect2);
         SDL_RenderDrawRect(graphics.renderer, &obstacleRect3);*/
-
 
         graphics.presentScene();
         SDL_Delay(40);  // Để game mượt (40 FPS)

@@ -1,13 +1,14 @@
 
 #ifndef _DEFS__H
 #define _DEFS__H
-#define BACKGROUND_IMG "forest.jpg"
+#define BACKGROUND "forest.jpg"
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 500;
 #define WINDOW_TITLE "Running Man!"
-
+//#define WINDOW_INTRO "Intro Game"
 #define MAN_SPRITE_FILE "sprite.png"
 #define OBSTACLE "obstacle.png"
+#define PLAY_BOTTOM "playBottom.png"
 const int MAN_CLIPS[][4] = {
     {  0, 0, 214, 146 },
     { 214, 0, 214, 146 },
