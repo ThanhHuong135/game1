@@ -53,7 +53,7 @@
 	"graphics.h"
 	"sprite.h"
 
-1743341320 d:\gameproject\game\defs.h
+1743566517 d:\gameproject\game\defs.h
 
 1743331619 d:\gameproject\game\graphics.h
 	"sprite.h"
@@ -76,7 +76,7 @@
 1742824438 d:\gameproject\game\jump.h
 	<vector>
 
-1743343515 source:d:\gameproject\game\main.cpp
+1743566118 source:d:\gameproject\game\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>

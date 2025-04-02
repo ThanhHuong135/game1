@@ -32,12 +32,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Obstacle.cpp" />
+		<Unit filename="Obstacle.h" />
 		<Unit filename="defs.h" />
+		<Unit filename="endScreen.cpp" />
+		<Unit filename="endScreen.h" />
 		<Unit filename="graphics.cpp" />
 		<Unit filename="graphics.h" />
-		<Unit filename="jump.cpp" />
-		<Unit filename="jump.h" />
+		<Unit filename="instruction.cpp" />
+		<Unit filename="instruction.h" />
+		<Unit filename="intro.cpp" />
+		<Unit filename="intro.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="player.cpp" />
+		<Unit filename="player.h" />
 		<Unit filename="sprite.cpp" />
 		<Unit filename="sprite.h" />
 		<Extensions>

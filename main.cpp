@@ -89,22 +89,6 @@ instruction.show(graphics, font);
                     running = false;
         }
 
-        /*// Lấy hitbox của player và obstacle để debug
-        SDL_Rect playerRect = player.getRect();
-        SDL_Rect obstacleRect = obstacle.getRect();
-        SDL_Rect obstacleRect2 = obstacle2.getRect();
-        SDL_Rect obstacleRect3 = obstacle3.getRect();
-
-        // In tọa độ để kiểm tra
-        cout << "Player: x=" << playerRect.x << ", y=" << playerRect.y
-             << ", w=" << playerRect.w << ", h=" << playerRect.h << endl;
-        cout << "Obstacle 1: x=" << obstacleRect.x << ", y=" << obstacleRect.y
-             << ", w=" << obstacleRect.w << ", h=" << obstacleRect.h << endl;
-        cout << "Obstacle 2: x=" << obstacleRect2.x << ", y=" << obstacleRect2.y
-             << ", w=" << obstacleRect2.w << ", h=" << obstacleRect2.h << endl;
-        cout << "Obstacle 3: x=" << obstacleRect3.x << ", y=" << obstacleRect3.y
-             << ", w=" << obstacleRect3.w << ", h=" << obstacleRect3.h << endl;*/
-
         // Vẽ nền và nhân vật
         background.scroll(8);
         graphics.render_background(background);
@@ -119,17 +103,8 @@ instruction.show(graphics, font);
         graphics.renderTexture(scoreTexture, 10, 10); // Hiển thị ở góc trái trên
         SDL_DestroyTexture(scoreTexture); // Giải phóng bộ nhớ sau mỗi lần vẽ
 
-
-        /*// Vẽ hitbox để kiểm tra va chạm
-        SDL_SetRenderDrawColor(graphics.renderer, 255, 0, 0, 255);
-        SDL_RenderDrawRect(graphics.renderer, &playerRect);
-        SDL_SetRenderDrawColor(graphics.renderer, 0, 255, 0, 255);
-        SDL_RenderDrawRect(graphics.renderer, &obstacleRect);
-        SDL_RenderDrawRect(graphics.renderer, &obstacleRect2);
-        SDL_RenderDrawRect(graphics.renderer, &obstacleRect3);*/
-
         graphics.presentScene();
-        SDL_Delay(40);  // Để game mượt (40 FPS)
+        SDL_Delay(35);
     }
     //
     SDL_DestroyTexture( background.texture );
