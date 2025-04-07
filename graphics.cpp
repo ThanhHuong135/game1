@@ -2,6 +2,7 @@
 #include <SDL_ttf.h>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "defs.h"
 #include "graphics.h"
 #include "sprite.h"
@@ -40,6 +41,11 @@ void Graphics::init()
     if (TTF_Init() == -1) {
             logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: ",
                              TTF_GetError());
+    }
+
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {
+            logErrorAndExit( "SDL_mixer could not initialize! SDL_mixer Error: %s\n",
+                            Mix_GetError() );
     }
 }
 // background

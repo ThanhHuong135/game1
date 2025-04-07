@@ -44,11 +44,12 @@
 	"graphics.h"
 	"sprite.h"
 
-1743331553 source:d:\gameproject\game\graphics.cpp
+1744036246 source:d:\gameproject\game\graphics.cpp
 	<iostream>
 	<SDL_ttf.h>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_mixer.h>
 	"defs.h"
 	"graphics.h"
 	"sprite.h"
@@ -76,11 +77,12 @@
 1742824438 d:\gameproject\game\jump.h
 	<vector>
 
-1743566118 source:d:\gameproject\game\main.cpp
+1744037770 source:d:\gameproject\game\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
+	<SDL_mixer.h>
 	"graphics.h"
 	"defs.h"
 	"sprite.h"
@@ -89,6 +91,7 @@
 	"intro.h"
 	"endScreen.h"
 	"instruction.h"
+	"music.h"
 
 1742824383 source:d:\gameproject\game\sprite.cpp
 	<iostream>
@@ -148,4 +151,11 @@
 1743343422 source:d:\gameproject\game\instruction.cpp
 	"instruction.h"
 	"defs.h"
+
+1744037854 source:d:\gameproject\game\music.cpp
+	"music.h"
+	<iostream>
+
+1744037183 d:\gameproject\game\music.h
+	<SDL_mixer.h>
 
